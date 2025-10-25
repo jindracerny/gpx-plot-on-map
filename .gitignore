@@ -1,0 +1,4 @@
+﻿.venv/
+*.html
+gpx_exports/
+activities/
