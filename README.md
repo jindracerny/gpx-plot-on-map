@@ -1,13 +1,15 @@
-# Strava Activity Heatmap Generator
+# Strava Activity Map Generator
 
-This Python script processes your entire Strava activity history from a bulk data export to generate a single, interactive heatmap of all your GPS tracks. It's a great way to visualize where you've been over the years.
+This Python script processes your entire Strava activity history from a bulk data export to generate a single, interactive map displaying all your GPS tracks as individual lines. It's a great way to visualize where you've been over the years, with the option to focus on specific years.
 
 ## Features
 
 -   **Supports Multiple Formats**: Processes both `.fit` and `.gpx` activity files.
 -   **Handles Compressed Files**: Automatically decompresses and reads `.fit.gz` and `.gpx.gz` files, which are common in Strava exports.
 -   **Recursive Search**: Scans the entire `activities` folder and all its subdirectories, so you don't have to worry about file organization.
--   **Interactive Map**: Generates a single `strava_heatmap.html` file that you can open in any web browser to pan and zoom.
+-   **Interactive Map**: Generates a single HTML file that you can open in any web browser to pan and zoom.
+-   **Activity Lines**: Plots each activity as a distinct red line on the map, with a popup showing the activity type and date.
+-   **Year Filtering**: Allows you to filter activities to display only those from a specific year.
 -   **Resilient**: Includes error handling to skip corrupted or unreadable files without crashing.
 
 ## Requirements
@@ -51,23 +53,36 @@ pip install -r requirements.txt
 
 ## Usage
 
-Once your folder is set up and dependencies are installed, simply run the script from your terminal:
+Once your folder is set up and dependencies are installed, run the script from your terminal.
 
-```bash
-python convert_activities.py
-```
+-   **To generate a map with all activities (all years):**
 
-The script will scan for all activity files, process them, and generate the heatmap. You will see progress printed in the console.
+    ```bash
+    python convert_activities.py
+    ```
+
+-   **To generate a map for a specific year (e.g., 2025):**
+
+    ```bash
+    python convert_activities.py --year 2025
+    ```
+
+The script will scan for all activity files, process them, and generate the map. You will see progress printed in the console.
 
 ## Output
 
-After the script finishes, a file named `strava_heatmap.html` will be created in your project directory. Open this file in your web browser to view your personal heatmap.
+After the script finishes, an HTML file will be created in your project directory.
+
+-   If no year filter is applied, the file will be named `strava_activity_map.html`.
+-   If a year filter is applied (e.g., `--year 2025`), the file will be named `strava_activity_map_2025.html`.
+
+Open this HTML file in your web browser to view your personal activity map.
 
 ## Configuration
 
 The script has two main configuration variables at the top of the file:
 
 -   `INPUT_FOLDER`: The path to your `activities` folder. It defaults to a subfolder named `activities` in the same directory as the script.
--   `OUTPUT_MAP_FILE`: The name of the output HTML file. Defaults to `strava_heatmap.html`.
+-   `OUTPUT_MAP_FILE`: The base name of the output HTML file. Defaults to `strava_activity_map.html`. The year will be appended if a filter is used.
 
 You can modify these if your folder structure is different.
