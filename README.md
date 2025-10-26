@@ -82,7 +82,7 @@ Open this HTML file in your web browser to view your personal activity map.
 
 Here's an example of a generated map, showing a zoomed-out detail of activities. Each red line represents a recorded activity.
 
-![Example Strava Activity Map (Zoomed Out Detail)](strava_map_example.png)
+![Example Strava Activity Map (Zoomed Out Detail)](strava_map_example.jpg)
 
 ## Configuration
 
