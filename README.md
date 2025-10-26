@@ -78,6 +78,12 @@ After the script finishes, an HTML file will be created in your project director
 
 Open this HTML file in your web browser to view your personal activity map.
 
+## Example Output
+
+Here's an example of a generated map, showing a zoomed-out detail of activities. Each red line represents a recorded activity.
+
+![Example Strava Activity Map (Zoomed Out Detail)](strava_map_example.png)
+
 ## Configuration
 
 The script has two main configuration variables at the top of the file:
